@@ -34,7 +34,6 @@ for file in glob.glob("*.html"):
 
 print('The dictionary')
 print('There are', len(thaidict), 'items')
-os.chdir("./")
 f = open('ThaiDict.dic', 'wb')
 pickle.dump(thaidict, f)
 f.close()
