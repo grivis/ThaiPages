@@ -1,6 +1,7 @@
 # Сканирование страниц и создание тайско-английского словаря
 import re
 from bs4 import BeautifulSoup
+import pickle
 
 import os
 import glob
@@ -33,5 +34,9 @@ for file in glob.glob("*.html"):
 
 print('The dictionary')
 print('There are', len(thaidict), 'items')
+os.chdir("./")
+f = open('ThaiDict.dic', 'wb')
+pickle.dump(thaidict, f)
+f.close()
 # for key, value in thaidict.items():
 #     print(key, ' : ', value)
