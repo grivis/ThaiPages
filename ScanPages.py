@@ -14,13 +14,13 @@ for file in glob.glob("*.html"):
         html = f.read()
         f.close()
 
-        bsObj = BeautifulSoup(html, 'html.parser')
+        bsObj = BeautifulSoup(html, 'lxml')
 
         wordtable = bsObj.find("table", {"class":"gridtable"})
 
         for row in wordtable.tr.next_siblings:
             try:
-                key = row.find('a', href=re.compile('^/id/.*')).get_text()
+                key = row.find('a', href=re.compile('^/id/\S*')).get_text()
             except AttributeError:
                 continue
             strings = []
